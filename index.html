@@ -1,15 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tier List Maker</title>
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
   <div id="root"></div>
-  <script type="module" src="./app.jsx"></script>
+  
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://esm.sh/react@18.2.0",
+      "react-dom/client": "https://esm.sh/react-dom@18.2.0/client"
+    }
+  }
+  </script>
+  
+  <script type="module">
+    import React, { useState, useEffect } from 'react';
+    import ReactDOM from 'react-dom/client';
+
+    const DEFAULT_TIERS = [
+      { id: 's-tier', name: 'S', color: 'bg-red-500', items: [] },
+      { id: 'a-tier', name: 'A', color: 'bg-orange-500', items: [] },
+      { id: 'b-tier', name: 'B', color: 'bg-yellow-500', items: [] },
+      { id: 'c-tier', name: 'C', color: 'bg-green-500', items: [] },
+      { id: 'd-tier', name: 'D', color: 'bg-blue-500', items: [] }
+    ];
+
+    // ... tüm App.jsx kodunu buraya kopyalayın ...
+
+    ReactDOM.createRoot(document.getElementById('root')).render(
+      React.createElement(TierListMaker)
+    );
+  </script>
 </body>
 </html>
